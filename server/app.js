@@ -1,7 +1,7 @@
 const express = require("express");
 const request = require("request");
 const cors = require("cors");
-const querystring = require("querystring");
+const querystring = require("query-string");
 const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
@@ -100,7 +100,7 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "http://localhost:3000/" +
+          "http://localhost:3000/?" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
