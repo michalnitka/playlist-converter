@@ -93,12 +93,6 @@ app.get("/callback", function (req, res) {
           json: true,
         };
 
-        // use the access token to access the Spotify Web API
-        // request.get(options, function (error, response, body) {
-        //   console.log(body);
-        // });
-
-        // we can also pass the token to the browser to make requests from there
         res.redirect(
           "http://localhost:3000/?" +
             querystring.stringify({
@@ -143,6 +137,12 @@ app.get("/refresh_token", function (req, res) {
       });
     }
   });
+});
+
+app.use(express.json());
+
+app.post("/playlist", function (req, res) {
+  console.log(req.body);
 });
 
 console.log("Listening on 8888");

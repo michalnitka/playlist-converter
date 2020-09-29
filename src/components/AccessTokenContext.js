@@ -8,7 +8,9 @@ export const AccessTokenProvider = ({ children }) => {
 
   useEffect(() => {
     let { access_token } = queryString.parse(window.location.search);
-    setSpotifyAccessToken(access_token);
+    if (access_token !== undefined) {
+      setSpotifyAccessToken(access_token);
+    }
   }, [spotifyAccessToken]);
 
   return (
